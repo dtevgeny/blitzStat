@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--<data>-->
+
+        <!--<variable-->
+            <!--name="item"-->
+            <!--type="com.dtevgeny.blitzstat.database.entity.Game"/>-->
+
+    <!--</data>-->
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="15dp"
+
+        >
+
+        <LinearLayout
+            android:id="@+id/ll_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/blogPostTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                />
+
+            <GridLayout
+                android:id="@+id/grid_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:padding="5dp"
+                android:background="#ADD8E6"
+                >
+
+                <TextView android:text="First name"/>
+                <TextView android:layout_gravity="end" android:gravity="center" android:layout_width="100dp" android:text="89"/>
+                <TextView android:text="First name"/>
+                <TextView android:layout_gravity="end" android:gravity="center"  android:layout_width="50dp" android:text="89"/>
+
+
+
+            </GridLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</layout>
