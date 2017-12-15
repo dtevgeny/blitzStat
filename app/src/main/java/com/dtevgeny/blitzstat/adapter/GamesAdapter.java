@@ -1,7 +1,9 @@
 package com.dtevgeny.blitzstat.adapter;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dtevgeny.blitzstat.activity.GameActivity;
 import com.dtevgeny.blitzstat.database.entity.Game;
 import com.dtevgeny.blitzstat.database.entity.GamePlayer;
 import com.dtevgeny.blitzstat.databinding.RecyclerItemBinding;
@@ -39,6 +42,10 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
 			public void onClick( View view ) {
 //				Toast.makeText( view.getContext(), "Clicked on Game with ID = " + String.valueOf( games.get( position ).getId() ), Toast.LENGTH_SHORT ).show();
 				Toast.makeText( view.getContext(), "Clicked on Game with ID = " + String.valueOf( games.get( holder.getAdapterPosition() ).getId() ), Toast.LENGTH_SHORT ).show();
+
+				Intent intent = new Intent( view.getContext(), GameActivity.class );
+				intent.putExtra( "game_id", games.get( holder.getAdapterPosition() ).getId() );
+				view.getContext().startActivity( intent );
 			}
 		} );
 	}
@@ -85,6 +92,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
 					layoutParams = new GridLayout.LayoutParams();
 					layoutParams.setGravity( Gravity.END );
 //					TODO : add scaling to width [ dps ]
+//					WIDTH_50 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
 					final float scale = binding.gridLayout.getContext().getResources().getDisplayMetrics().density;
 					int pixels = ( int ) ( 50 * scale + 0.5f );
 //					layoutParams.width = pixels;
