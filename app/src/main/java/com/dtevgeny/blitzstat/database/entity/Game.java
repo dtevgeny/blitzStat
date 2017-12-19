@@ -101,14 +101,15 @@ public class Game {
 	public void calculateGamePlayersScore() {
 
 		for ( GamePlayer gamePlayer : this.getGamePlayers() ) {
-			gamePlayer.totalScore = 0;
+			gamePlayer.setTotalScore( 0 );
 		}
 
 		for ( Round round : this.getRounds() ) {
 			for ( RoundScore roundScore : round.getRoundScores() ) {
 				for ( GamePlayer gamePlayer : this.getGamePlayers() ) {
 					if ( gamePlayer.getFriend_id() == roundScore.getFriend_id() ) {
-						gamePlayer.totalScore += roundScore.getScore();
+						gamePlayer.setTotalScore( gamePlayer.getTotalScore() + roundScore.getScore() );
+						roundScore.setCurrentScore( gamePlayer.getTotalScore() );
 					}
 				}
 			}

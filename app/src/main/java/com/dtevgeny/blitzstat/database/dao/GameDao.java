@@ -22,7 +22,8 @@ public interface GameDao {
 	int rowCount();
 
 	@Query( "SELECT * FROM games WHERE id = ( :id )" )
-	Game getById( int id );
+//	Game getById( int id );
+	LiveData<Game> getById( int id );
 
 	@Insert
 	void insertGames(Game... games);

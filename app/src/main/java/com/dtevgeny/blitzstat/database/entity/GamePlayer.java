@@ -14,7 +14,7 @@ public class GamePlayer {
 
 	// TODO delete, temp test solution
 	@Ignore
-	public int totalScore;
+	private int totalScore;
 
 	public GamePlayer() {
 	}
@@ -41,5 +41,13 @@ public class GamePlayer {
 
 	public void setFriend_id( int friend_id ) {
 		this.friend_id = friend_id;
+	}
+
+	public int getTotalScore() {
+		return totalScore;
+	}
+
+	public void setTotalScore( int totalScore ) {
+		this.totalScore = totalScore;
 	}
 }

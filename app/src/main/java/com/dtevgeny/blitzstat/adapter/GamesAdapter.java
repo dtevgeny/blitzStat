@@ -3,7 +3,6 @@ package com.dtevgeny.blitzstat.adapter;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.dtevgeny.blitzstat.activity.GameActivity;
+import com.dtevgeny.blitzstat.activity.CurrentGameActivity;
 import com.dtevgeny.blitzstat.database.entity.Game;
 import com.dtevgeny.blitzstat.database.entity.GamePlayer;
 import com.dtevgeny.blitzstat.databinding.RecyclerItemBinding;
@@ -43,7 +42,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
 //				Toast.makeText( view.getContext(), "Clicked on Game with ID = " + String.valueOf( games.get( position ).getId() ), Toast.LENGTH_SHORT ).show();
 				Toast.makeText( view.getContext(), "Clicked on Game with ID = " + String.valueOf( games.get( holder.getAdapterPosition() ).getId() ), Toast.LENGTH_SHORT ).show();
 
-				Intent intent = new Intent( view.getContext(), GameActivity.class );
+				Intent intent = new Intent( view.getContext(), CurrentGameActivity.class );
 				intent.putExtra( "game_id", games.get( holder.getAdapterPosition() ).getId() );
 				view.getContext().startActivity( intent );
 			}
@@ -100,7 +99,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
 
 					tv = new TextView( binding.gridLayout.getContext() );
 					tv.setLayoutParams( layoutParams );
-					tv.setText( String.valueOf( gamePlayer.totalScore ) );
+					tv.setText( String.valueOf( gamePlayer.getTotalScore() ) );
 					tv.setBackgroundColor( Color.MAGENTA );
 
 					tv.setGravity( Gravity.CENTER );

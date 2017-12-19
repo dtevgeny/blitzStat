@@ -2,20 +2,27 @@ package com.dtevgeny.blitzstat.database.entity;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+import android.content.Intent;
+
+import java.util.Comparator;
 
 @Entity(tableName = "roundScores",
 		foreignKeys = @ForeignKey(
 				entity = Round.class,
 				parentColumns = "id",
 				childColumns = "round_id" ) )
-public class RoundScore {
+public class RoundScore implements Comparable<RoundScore> {
 
 	@PrimaryKey(autoGenerate = true)
 	private int id;
 	private int round_id;
 	private int friend_id;
 	private int score;
+
+	@Ignore
+	private int currentScore;
 
 	public RoundScore() {
 	}
@@ -50,5 +57,22 @@ public class RoundScore {
 
 	public void setScore( int score ) {
 		this.score = score;
+	}
+
+	public int getCurrentScore() {
+		return currentScore;
+	}
+
+	public void setCurrentScore( int currentScore ) {
+		this.currentScore = currentScore;
+	}
+
+	public int compareTo( RoundScore compareRoundScore ) {
+		int compareFriend_id = ((RoundScore) compareRoundScore).getFriend_id();
+
+		//ascending order
+		return this.friend_id - compareFriend_id;
+		//descending order
+//		return compareFriend_id - this.friend_id;
 	}
 }

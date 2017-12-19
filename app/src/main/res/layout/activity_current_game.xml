@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="adapter"
+            type="com.dtevgeny.blitzstat.adapter.GamesAdapter"/>
+    </data>
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="#ADD8E6"
+            android:contentDescription="Players score chart"/>
+
+        <GridView
+            android:id="@+id/gv_Main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="4"
+            android:horizontalSpacing="5dp"
+            android:verticalSpacing="5dp"
+            >
+        </GridView>
+
+    </LinearLayout>
+
+</layout>
