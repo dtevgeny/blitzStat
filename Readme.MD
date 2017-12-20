@@ -1,2 +1,7 @@
 # Blitz Stat
-Statistics app for borad card game "Blitz!"
+Statistics app for board card game "Blitz!"
+
+
+
+
+
